@@ -1,0 +1,13 @@
+config:
+  image: busybox
+  command: true
+  volumes:
+    - ./vol-config:/etc/unbound
+
+dns:
+  build: .
+  volumes_from:
+    - config
+  ports:
+    - 53/udp
+
